@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Centered bold power/lightning icon representing grid management -->
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M54,20 L34,56 L52,56 L44,88 L74,48 L56,48 Z" />
+</vector>

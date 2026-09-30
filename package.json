@@ -1,0 +1,8 @@
+{
+  "name": "grid-manager-android",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Building Android Applet...'"
+  }
+}

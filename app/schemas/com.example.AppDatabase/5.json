@@ -1,0 +1,372 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "8e3321fabd68e5d3fd3ff5221607ec3c",
+    "entities": [
+      {
+        "tableName": "substations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `name` TEXT NOT NULL, `address` TEXT NOT NULL, `status` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "feeders",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `name` TEXT NOT NULL, `substationId` INTEGER NOT NULL, `status` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "substationId",
+            "columnName": "substationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "devices",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `deviceId` TEXT NOT NULL, `name` TEXT NOT NULL, `deviceType` TEXT NOT NULL, `poleNumber` TEXT, `feederId` INTEGER NOT NULL, `substationId` INTEGER NOT NULL, `unit` TEXT, `team` TEXT, `status` TEXT NOT NULL, `switchStatus` TEXT NOT NULL, `scadaStatus` TEXT NOT NULL, `relay79` TEXT NOT NULL, `imageUrl` TEXT, `googleMapsUrl` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deviceId",
+            "columnName": "deviceId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deviceType",
+            "columnName": "deviceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poleNumber",
+            "columnName": "poleNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "feederId",
+            "columnName": "feederId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "substationId",
+            "columnName": "substationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unit",
+            "columnName": "unit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "team",
+            "columnName": "team",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "switchStatus",
+            "columnName": "switchStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scadaStatus",
+            "columnName": "scadaStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "relay79",
+            "columnName": "relay79",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "googleMapsUrl",
+            "columnName": "googleMapsUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "loops_v2",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `feederAId` INTEGER NOT NULL, `feederBId` INTEGER NOT NULL, `openDeviceId` INTEGER NOT NULL, `status` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "feederAId",
+            "columnName": "feederAId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "feederBId",
+            "columnName": "feederBId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "openDeviceId",
+            "columnName": "openDeviceId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "loops_v2_legacy_archive",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `name` TEXT NOT NULL, `stationAName` TEXT, `stationBName` TEXT, `feederAName` TEXT, `feederBName` TEXT, `openDeviceCode` TEXT, `openDeviceName` TEXT, `loopStatus` TEXT, `normalCapacityA` REAL, `normalCapacityB` REAL, `tieCapacity` REAL, `notes` TEXT, `updatedAt` TEXT, `archivedAt` INTEGER NOT NULL, `archiveReason` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stationAName",
+            "columnName": "stationAName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "stationBName",
+            "columnName": "stationBName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "feederAName",
+            "columnName": "feederAName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "feederBName",
+            "columnName": "feederBName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "openDeviceCode",
+            "columnName": "openDeviceCode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "openDeviceName",
+            "columnName": "openDeviceName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "loopStatus",
+            "columnName": "loopStatus",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "normalCapacityA",
+            "columnName": "normalCapacityA",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "normalCapacityB",
+            "columnName": "normalCapacityB",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tieCapacity",
+            "columnName": "tieCapacity",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "archivedAt",
+            "columnName": "archivedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "archiveReason",
+            "columnName": "archiveReason",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e3321fabd68e5d3fd3ff5221607ec3c')"
+    ]
+  }
+}
